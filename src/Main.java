@@ -14,20 +14,24 @@ public class Main {
 
     private static void oddNumbers(List<Integer> nums) {
         System.out.println("Задача 1. Нечетные числа");
+        Set<Integer> numbers = new HashSet<>(nums);
         for (int num : nums) {
             if (num % 2 != 0) {
-                System.out.println(num);
+                numbers.add(num);
             }
         }
+        System.out.println(numbers);
     }
 
     private static void evenNumbers(List<Integer> nums) {
         System.out.println("Задача 2. Четные числа");
+        Set<Integer> numbers = new HashSet<>(nums);
         for (int num : nums) {
             if (num % 2 == 0) {
-                System.out.println(num);
+                numbers.add(num);
             }
         }
+        System.out.println(numbers);
     }
 
     private static void uniqueWords(List<String> strings) {
