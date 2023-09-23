@@ -14,24 +14,24 @@ public class Main {
 
     private static void oddNumbers(List<Integer> nums) {
         System.out.println("Задача 1. Нечетные числа");
-        Set<Integer> numbers = new HashSet<>(nums);
+
         for (int num : nums) {
             if (num % 2 != 0) {
-                numbers.add(num);
+                System.out.println(num);
             }
         }
-        System.out.println(numbers);
     }
 
     private static void evenNumbers(List<Integer> nums) {
         System.out.println("Задача 2. Четные числа");
-        Set<Integer> numbers = new HashSet<>(nums);
+        Collections.sort(nums);
+        int prevNum = Integer.MIN_VALUE;
         for (int num : nums) {
-            if (num % 2 == 0) {
-                numbers.add(num);
+            if (num % 2 == 0 && num != prevNum) {
+                System.out.println(num);
+                prevNum=num;
             }
         }
-        System.out.println(numbers);
     }
 
     private static void uniqueWords(List<String> strings) {
@@ -42,14 +42,7 @@ public class Main {
 
     private static void duplicateWords(List<String> strings) {
         System.out.println("Задача 4. Дубли слов");
-        Map<String, Integer> wordsMap = new HashMap<>();
-        for (String word : strings) {
-            if (wordsMap.containsKey(word)) {
-                wordsMap.put(word, wordsMap.get(word) + 1);
-            } else {
-                wordsMap.put(word, 1);
-            }
-        }
-        System.out.println(wordsMap);
+        Set<String> uniqueWords = new HashSet<>(strings);
+        System.out.println(strings.size()-uniqueWords.size());
     }
 }
